@@ -4,9 +4,9 @@
   "description": "MQTT Code Challenge for Altoros Ramp-Up",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run start-app\" \"npm run start-devices\"",
-    "start-app": "webpack-dev-server --mode development",
-    "start-devices": "webpack --config webpack.devices.config.js --mode development",
+    "dev": "concurrently \"npm run dev-app\" \"npm run dev-devices\"",
+    "dev-app": "webpack-dev-server --mode development",
+    "dev-devices": "webpack --config webpack.devices.config.js --mode development",
     "build": "webpack --mode development",
     "run:devices": "NODE_ENV=development nodemon dist/devices.js",
     "test": "echo \"Error: no test specified\" && exit 1"
