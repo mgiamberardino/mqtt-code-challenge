@@ -15,6 +15,16 @@ npm install
 npm run dev
 ```
 
+## Configuration
+
+The only configuration available for this project is the url of the MQTT broker to conect to. By default is using `mqtt://localhost` as MQTT broker address and `ws://localhost:1884` as default mqtt websocket address but you can customize it using the env vars `MQTT_HOST` and `WS_MQTT_HOST`:
+```
+WS_MQTT_HOST="ws://your_host:ws_port" MQTT_HOST="mqtt://your_host" npm run dev
+
+```
+
+The front-end app is using `ws://localhost:1884` as default value for the mqtt websocket connection.
+
 ## Contributors
 
 * Mauro Giamberardino

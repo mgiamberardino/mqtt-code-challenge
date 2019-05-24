@@ -38,6 +38,6 @@ module.exports = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.EnvironmentPlugin(['MQTT_HOST']),
+        new webpack.EnvironmentPlugin(['MQTT_HOST', 'WS_MQTT_HOST']),
     ],
 };
