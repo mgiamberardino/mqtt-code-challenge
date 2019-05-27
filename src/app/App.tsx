@@ -1,40 +1,23 @@
-import React from 'react';
-// import logo from './logo.svg';
+import * as React from 'react';
 import './App.css';
-import DeviceRow from './DeviceRow';
-import range from 'lodash.range';
-
-// const App: React.FC = () => {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.tsx</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import Devices from './devices/Devices';
+import { hot } from 'react-hot-loader/root';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <table>
-        <tbody>
-          {range(1,11).map((id: number) => (<DeviceRow id={id} key={id} />))}
-        </tbody>
-      </table>
+      <AppBar position="static" color="primary">
+        <Toolbar>
+          <Typography variant="h6" color="inherit">
+            Your Devices
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Devices/>
     </div>
   );
 }
+hot
 
-export default App;
+export default hot(App);

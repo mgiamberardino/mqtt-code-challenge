@@ -33,6 +33,7 @@
     "webpack-shell-plugin": "^0.5.0"
   },
   "dependencies": {
+    "@material-ui/core": "^4.0.0",
     "@types/mqtt": "^2.5.0",
     "lodash.range": "^3.2.0",
     "mqtt": "^2.18.8",

@@ -16,6 +16,7 @@ export default class MQTTDeviceController implements IObserver<DeviceInformation
   public execute(cmd: string) {
     if (this.commands[cmd]) {
       this.commands[cmd](this.device);
+      this.device.notify();
     }
   }
 }

@@ -24,9 +24,15 @@ export interface DeviceInformation {
 export default class Device implements ISubject<DeviceInformation> {
   private power: boolean = false;
   private locked: boolean = false;
+  private speed: number = Math.floor(Math.random() * 120);
+  private location: string = rc();
   private observers: Array<IObserver<DeviceInformation>> =  [];
   constructor(public id: number, private name: string, { readingInterval = 5000 }: { readingInterval: number }) {
-    setInterval(this.notify.bind(this), readingInterval);
+    setInterval(() => {
+      this.location = rc();
+      this.speed = Math.floor(Math.random() * 120);
+      this.notify();
+    }, readingInterval);
   }
 
   public switchPower(): void {
@@ -57,11 +63,11 @@ export default class Device implements ISubject<DeviceInformation> {
   public notify() {
     const data: DeviceInformation = {
       id: this.id,
-      location: rc(),
+      location: this.location,
       locked: this.locked,
       name: this.name,
       power: this.power ? "on" : "off",
-      speed: Math.floor(Math.random() * 120),
+      speed: this.speed,
       timestamp: new Date(),
     }
     for (const obs of this.observers) {
