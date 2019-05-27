@@ -35,7 +35,7 @@ function switchLock(device: Device) {
  * @param id Device identificator
  * @returns {Array} [device, switchLock, switchPower] 
  */
-export function useDevice(id: number): [Device, Function, Function] {
+export function useDevice(id: number): [Device, () => void, () => void] {
   const [device, setDevice] = useState(initialValues);
   const topic = `device/${id}/status`;
   useDeviceSubscription(topic, setDevice);

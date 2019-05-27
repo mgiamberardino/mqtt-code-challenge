@@ -26,12 +26,12 @@ const DeviceRow = ({ id }) => {
   )
 }
 
-function useDeviceSwitch(switchValue, switchFunction) {
+function useDeviceSwitch(checked, switchFunction) {
   function onChange(e: React.ChangeEvent<HTMLInputElement>, checked: boolean) {
     switchFunction();
   }
   return {
-    checked: switchValue,
+    checked,
     onChange,
   };
 }
